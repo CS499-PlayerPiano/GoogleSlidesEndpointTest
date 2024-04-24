@@ -1,0 +1,43 @@
+{
+    "name": "PianoTest",
+    "version": "1.0.0",
+    "description": "PianoTest",
+    "manifest_version": 3,
+    "permissions": [
+        "activeTab",
+        "scripting",
+        "contentSettings",
+        "debugger",
+        "declarativeNetRequestFeedback",
+        "offscreen",
+        "storage",
+        "tabCapture",
+        "webRequest",
+        "webNavigation"
+    ],
+    "action": {
+        "default_popup": "popup.html",
+        "default_title": "PianoTest"
+    },
+    "host_permissions": [
+        "https://*/*"
+    ],
+    "content_scripts": [
+        {
+            "matches": [
+                "https://docs.google.com/presentation/*"
+            ],
+            "css": [
+                "my-styles.css"
+            ],
+            "js": [
+                "content-script.js"
+            ],
+            "all_frames": false,
+            "match_origin_as_fallback": false,
+            "match_about_blank": false,
+            "run_at": "document_idle",
+            "world": "MAIN"
+        }
+    ]
+}
